@@ -15,5 +15,9 @@ export class ModalComponent {
   abrir() {
     this.mostrar = true
   }
-
+  
+  toggle () {
+    this.mostrar = !this.mostrar;
+  }
+  
 }
