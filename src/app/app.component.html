@@ -1,0 +1,30 @@
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100&display=swap" rel="stylesheet">
+<div class="imagem">
+  <img src="https://logodownload.org/wp-content/uploads/2020/06/valorant-logo.png" alt="" width="50%">
+</div>
+<div class="botoes">
+  <button (click)="modalAPI1.abrir()" class="api1">Agentes</button>
+  <button (click)="modalAPI2.abrir()" class="api2">Mapas</button>
+</div>
+<!-- modal1 -->
+<app-modal #modalAPI1>
+  <br>
+  <p style="text-align: center;">Agentes</p>
+  <img [src]="linkImage1" alt="" width="100%" class="imagemPersonagem">
+  <select [(ngModel)]="selectedTag1" class="input_select">
+    <option [value]="agente.bustPortrait" *ngFor="let agente of agentes">{{ agente.isPlayableCharacter==true?agente.displayName:agente.displayName.remove }}</option>
+  </select>
+  <button (click)="consultar1()" class="consultar_button">Consultar</button>
+  <input type="button" (click)="modalAPI1.fechar()" value="Fechar" class="input_button">
+</app-modal>
+<!-- modal2 -->
+<app-modal #modalAPI2>
+  <br>
+  <p style="text-align: center;">Mapas</p>
+  <img [src]="linkImage2" alt="" width="100%">
+  <select [(ngModel)]="selectedTag2" class="input_select">
+    <option [value]="mapa.splash" *ngFor="let mapa of mapas">{{ mapa.displayName }}</option>
+  </select>
+  <button (click)="consultar2()" class="consultar_button">Consultar</button>
+  <input type="button" (click)="modalAPI2.fechar()" value="Fechar" class="input_button">
+</app-modal>
